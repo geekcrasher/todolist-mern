@@ -8,8 +8,10 @@ const app = express()
 
 const todoRouter = require('./routes/todoRouter')
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
-app.get('/api/todo', todoRouter)
+app.use('/api/todos', todoRouter)
 
 app.listen(port, () => {
    console.log(`Server running on port ${port}`)
