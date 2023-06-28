@@ -1,18 +1,16 @@
 const express = require('express')
 const router = express.Router()
-const {getTodo, addTodo, updateTodo, deleteTodo} = require('../controller/todoController')
+const { getTodo, addTodo, updateTodo, deleteTodo} = require('../controller/todoController')
 
-// get all tasks
-router.get('/', getTodo)
+/**
+ * chaining the routes with the same path/route
+ * 
+ * get and post a task - > ('/')
+ * update and delete a task -> ('/:id')
+ */
 
-// add a new task
-router.post('/', addTodo)
-
-// update a task
-router.put('/:id', updateTodo)
-
-// delete a task
-router.delete('/:id', deleteTodo)
+router.route('/').get(getTodo).post(addTodo)
+router.route('/:id').put(updateTodo).delete(deleteTodo)
 
 
 module.exports = router
