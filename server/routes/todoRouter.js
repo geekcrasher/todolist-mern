@@ -1,25 +1,18 @@
 const express = require('express')
 const router = express.Router()
+const {getTodo, addTodo, updateTodo, deleteTodo} = require('../controller/todoController')
 
 // get all tasks
-router.get('/', (req, res) => {
-   res.status(200).json({ msg: 'Get Tasks' })
-})
+router.get('/', getTodo)
 
 // add a new task
-router.post('/', (req, res) => {
-   res.status(200).json({ msg: 'Add Todo' })
-})
+router.post('/', addTodo)
 
 // update a task
-router.put('/:id', (req, res) => {
-   res.status(200).json({ msg: 'Update Todo' })
-})
+router.put('/:id', updateTodo)
 
 // delete a task
-router.delete('/:id', (req, res) => {
-   res.status(200).json({ msg: 'Delete Todo' })
-})
+router.delete('/:id', deleteTodo)
 
 
 module.exports = router
