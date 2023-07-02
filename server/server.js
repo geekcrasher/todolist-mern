@@ -1,21 +1,45 @@
-const dotenv = require('dotenv').config()
+const dotenv = require("dotenv").config();
 
-const express = require('express')
-const cors = require('cors')
-const connectDB = require('./config/connectDB')
-const PORT = process.env.PORT || 4000
+const express = require("express");
+const cors = require("cors");
+const app = express();
+const PORT = process.env.PORT || 4000;
+const mongoose = require("mongoose");
+const connectDB = require("./config/connectDB");
+const todoRouter = require("./routes/todoRouter");
 
-const app = express()
+// connectDB()
 
-const todoRouter = require('./routes/todoRouter')
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 
-connectDB()
+app.use("/api/todos", todoRouter);
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("MongoDB Connected");
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
-app.use('/api/todos', todoRouter)
 
-app.listen(PORT, () => {
-   console.log(`Server running on port ${PORT}`)
-})
+
+/*
+  const startDB = async () => {
+   try {
+      await connectDB()
+      app.listen(PORT, () => {
+         console.log(`Server running on port ${PORT}`)
+      })
+   } catch (error) {
+      console.log(error)
+   }
+}
+
+startDB()
+*/
