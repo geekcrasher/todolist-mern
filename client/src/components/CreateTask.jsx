@@ -16,10 +16,15 @@ const CreateTask = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    dispatch(setTodo([...todo, {title, description, priority,}]));
-    dispatch(setTitle(""));
-    dispatch(setDescription(""));
-    dispatch(setPriority(""));
+    if(title, description, priority) {
+      dispatch(setTodo([...todo, {title, description, priority,}]));
+      dispatch(setTitle(""));
+      dispatch(setDescription(""));
+      dispatch(setPriority(""));
+    }
+    else {
+      console.log('cannot be empty')
+    }
   };
 
     const taskTitle = (event) => dispatch(setTitle(event.target.value));
