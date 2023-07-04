@@ -16,8 +16,7 @@ const {
  */
 
 router.route('/').get(getTasks).post(addTask)
-router.get('/:id', getTask)
-router.route('/:id').put(updateTask).delete(deleteTask)
+router.route('/:id').get(getTask).put(updateTask).delete(deleteTask)
 
 
 module.exports = router
