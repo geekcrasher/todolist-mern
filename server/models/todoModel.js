@@ -14,7 +14,7 @@ const todoSchema = mongoose.Schema({
       require: [true, 'Please add a level of priority']
    },
 }, {
-   timeStamps: true
+   timestamps: true
 })
 
 
