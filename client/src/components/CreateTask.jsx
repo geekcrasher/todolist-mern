@@ -37,7 +37,7 @@ const CreateTask = () => {
         <div>
           <label htmlFor="title">Title</label>
           <input
-            className="ring ring-1 outline-0 rounded-sm"
+            className="ring-1 outline-0 rounded-sm"
             type="text"
             name="title"
             id="title"
@@ -50,7 +50,7 @@ const CreateTask = () => {
         <div>
           <label htmlFor="description">Description</label>
           <input
-            className="ring ring-1 outline-0 rounded-sm"
+            className="ring-1 outline-0 rounded-sm"
             type="text"
             name="description"
             id="description"
@@ -63,7 +63,7 @@ const CreateTask = () => {
         <div>
           <label htmlFor="priority">Priority</label>
           <input
-            className="ring ring-1 outline-0 rounded-sm"
+            className="ring-1 outline-0 rounded-sm"
             type="text"
             name="priority"
             id="priority"
