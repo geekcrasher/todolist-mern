@@ -14,11 +14,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-app.use("/api/todos", todoRouter);
+app.use("/todos", todoRouter);
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    console.log("MongoDB Connected");
+    console.log("MongoDB Connected ", mongoose.connection.host);
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
     });
