@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types'
 
-const Task = ({todos}) => {
+const Task = ({ todos, deleteTodoMutation }) => {
   return (
     <section className="border p-3">
       {todos?.data?.map((task, key) => {
@@ -13,6 +14,12 @@ const Task = ({todos}) => {
             <h1>{title}</h1>
             <h1>{description}</h1>
             <h1>{priority}</h1>
+            <button 
+               onClick={() => deleteTodoMutation.mutate(task._id)}
+               className="bg-sky-700 py-1 px-4"
+            >
+              Delete
+            </button>
           </section>
         );
       })}
@@ -21,3 +28,9 @@ const Task = ({todos}) => {
 };
 
 export default Task;
+
+
+Task.propTypes = {
+   todos: PropTypes.object,
+   deleteTodoMutation: PropTypes.object,
+ };
