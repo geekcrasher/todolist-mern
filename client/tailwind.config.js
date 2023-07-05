@@ -22,30 +22,15 @@ export default {
      width: {
        "12/12": "95%",
      },
-     textColor: {
-       primary: "#DFDFD8",
-       secondary: "#6D6D72",
-       light_gray: "#c5c5c7",
-       title: "#F86465",
-       text_light: "#3C3C43",
-     },
      backgroundColor: {
-       main_dark: "#1E1E20",
-       pink_primary: "#F86465",
-       pink_secondary: "#c94f51",
-       priority: "#313136",
-       task: "#F6F6F7",
-       task_dark: "#252529",
-       highlight: "#e2e2e3"
-     },
-     borderColor: {
-       semi: "#e7e7e8",
-       secondary: "#333",
-
-     },
-     minHeight: {
-       "60vh": "60vh",
-     },
+      main_dark: "#1E1E20",
+      pink_primary: "#F86465",
+      pink_secondary: "#c94f51",
+      priority: "#313136",
+      task: "#F6F6F7",
+      task_dark: "#252529",
+      highlight: "#e2e2e3"
+    },
    },
   },
 //   require("daisyui")
