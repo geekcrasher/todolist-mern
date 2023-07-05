@@ -1,22 +1,46 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import Task from "./Task";
 import Loading from "./Loading";
 import Error from "./Error";
 import EmptyTask from "./EmptyTask";
+import {
+  getTasks,
+  getTask,
+  addTask,
+  updateTask,
+  deleteTask,
+} from "../api/apiHandler";
+import CreateTask from "./CreateTask";
 
-const fetcher = () => {
-  return axios.get("/todos");
-};
+// const fetcher = () => {
+//   return axios.get(`${import.meta.env.VITE_API_BASE_URL}/todos`);
+// };
 
 const TodoList = () => {
   const queryClient = useQueryClient();
-  const { data: todos, isLoading, isError } = useQuery(["todos"], fetcher);
+
+  const { data: todos, isLoading, isError } = useQuery(["todos"], getTasks);
+
+  const addTodoMutation = useMutation(addTask, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(["todos"]);
+    },
+  });
+
+  const deleteTodoMutation = useMutation(deleteTask, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(["todos"]);
+    },
+  });
 
   return (
     <section>
-      <Task todos={todos} />
+      <>
+        <CreateTask addTodoMutation={addTodoMutation} />
+        <Task todos={todos} deleteTodoMutation={deleteTodoMutation} />
+      </>
       <>
         <Loading isLoading={isLoading} />
         <Error isError={isError} />
