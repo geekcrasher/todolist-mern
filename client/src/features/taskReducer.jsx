@@ -1,13 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  todo: [
-   {  
-      title: "", 
-      description: "", 
-      priority: "" 
-   }
-],
+  todo: [],
   title: "",
   description: "",
   priority: "",
@@ -19,15 +13,8 @@ const taskSlice = createSlice({
   reducers: {
     setTodo: (state, action) => {
       state.todo = action.payload;
+      console.log( state.todo);
     },
-
-   //  setTodo: (state, action) => {
-   //    state.title = action.payload;
-   //    state.description = action.payload;
-   //    state.priority = action.payload;
-   //  }
-
-
     setTitle: (state, action) => {
       state.title = action.payload;
     },
