@@ -34,6 +34,6 @@ export default {
    },
   },
 //   require("daisyui")
-  plugins: [],
+  plugins: [require("daisyui")],
 }
 

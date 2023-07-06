@@ -13,7 +13,6 @@ const taskSlice = createSlice({
   reducers: {
     setTodo: (state, action) => {
       state.todo = action.payload;
-      console.log( state.todo);
     },
     setTitle: (state, action) => {
       state.title = action.payload;
