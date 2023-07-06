@@ -14,10 +14,6 @@ import {
 } from "../api/apiHandler";
 import CreateTask from "./CreateTask";
 
-// const fetcher = () => {
-//   return axios.get(`${import.meta.env.VITE_API_BASE_URL}/todos`);
-// };
-
 const TodoList = () => {
   const queryClient = useQueryClient();
 
@@ -35,11 +31,17 @@ const TodoList = () => {
     },
   });
 
+  const updateTodoMutation = useMutation(updateTask, {
+   onSuccess: () => {
+     queryClient.invalidateQueries(["todos"]);
+   },
+ });
+
   return (
     <section>
       <>
-        <CreateTask addTodoMutation={addTodoMutation} />
-        <Task todos={todos} deleteTodoMutation={deleteTodoMutation} />
+        <CreateTask addTodoMutation={addTodoMutation}/>
+        <Task todos={todos} deleteTodoMutation={deleteTodoMutation} updateTodoMutation={updateTodoMutation}/>
       </>
       <>
         <Loading isLoading={isLoading} />
