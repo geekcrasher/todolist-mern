@@ -1,22 +1,26 @@
 import PropTypes from "prop-types";
-import { ClipboardList, Moon, Sun } from "lucide-react";
+import { ListTodo, MoonStar,  Sun } from "lucide-react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = ({ onClick, isClick }) => {
+
+
   return (
-    <nav className="flex items-center justify-between fixed top-0 z-20 w-full xs:h-16 md:h-20 xs:px-6 md:px-10 border-b border-b-semi dark:border-b-secondary bg-white dark:bg-main_dark">
-        <section className="flex items-center">
-          <span>
-            <ClipboardList color="#6D6D72"  size={22} />
-          </span>
-          <span className="font-noto-sans font-bold tracking-wide text-sm lg:text-base ml-4 text-text_light dark:text-primary">
-            TodoList
-          </span>
-        </section>
-        <section className="mt-1">
-          <button onClick={onClick} className="bg-task dark:bg-task_dark p-1 rounded-md">
-            {isClick ? <Moon color="#6D6D72" size={22} /> : <Sun color="#6D6D72" />}
+    <nav className=" h-24 flex items-center justify-between fixed top-0 z-20 w-full  xs:px-6 md:px-10 bg-[#191E24]">
+      {/* <section className="flex items-center cursor-pointer"> */}
+        <NavLink className="btn hover:bg-transparent border-none">
+         <span><ListTodo color="#A6ADB9" size={28} /></span>
+         <span className="font-figtree lg:text-2xl ml-2 text-[#A6ADB9] lowercase">
+            task
+            <span className="font-figtree lg:text-2xl text-[#00D1A7] normal-case">Tracker</span>
+         </span>
+        </NavLink>
+      {/* </section> */}
+      <section className="mt-1">
+          <button onClick={onClick} className=" hover:bg-transparent border-none p-1 rounded-md active:motion-safe:animate-spin">
+            {isClick ? <MoonStar color="#A6ADB9" size={22}/> : <Sun color="#A6ADB9" />}
           </button>
-        </section>
+      </section>
     </nav>
   );
 };
