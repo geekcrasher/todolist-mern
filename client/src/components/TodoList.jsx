@@ -1,13 +1,10 @@
 import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
-import axios from "axios";
-import { useSelector } from "react-redux";
 import Task from "./Task";
 import Loading from "./Loading";
 import Error from "./Error";
 import EmptyTask from "./EmptyTask";
 import {
   getTasks,
-  getTask,
   addTask,
   updateTask,
   deleteTask,
@@ -38,11 +35,11 @@ const TodoList = () => {
  });
 
   return (
-    <section>
-      <>
+    <section className=" w-9/12 h-[38rem]">
+      <section className="grid grid-cols-4 gap-10">
         <CreateTask addTodoMutation={addTodoMutation}/>
         <Task todos={todos} deleteTodoMutation={deleteTodoMutation} updateTodoMutation={updateTodoMutation}/>
-      </>
+      </section>
       <>
         <Loading isLoading={isLoading} />
         <Error isError={isError} />
