@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import Navbar from './components/Navbar'
 import TodoList from "./components/TodoList";
+import { Route, Router, Routes } from "react-router-dom";
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
    }
 
   return (
-    <main className="min-h-screen w-full font-sans text-slate-100">
+    <main className="min-h-screen w-full font-sans text-slate-100 bg-[#191E24] grid place-items-center">
       <Navbar onClick={handleClick} isClick={isClick}/>
       <TodoList />
     </main>
