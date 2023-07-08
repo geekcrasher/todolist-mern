@@ -18,6 +18,7 @@ export default {
      },
      fontFamily: {
        "noto-sans": ["Noto Sans", "sans-serif"],
+       figtree: ["Figtree", "sans-serif"]
      },
      width: {
        "12/12": "95%",
