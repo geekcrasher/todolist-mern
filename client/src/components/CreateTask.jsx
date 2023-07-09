@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from "react-redux";
 import {
   setTodo,
@@ -6,15 +7,14 @@ import {
   setPriority,
 } from "../features/taskReducer";
 
+
 const CreateTask = ({ addTodoMutation }) => {
+
   const dispatch = useDispatch();
-  const { todo, title, description, priority } = useSelector(
-    (state) => state.task
-  );
+  const { todo, title, description, priority } = useSelector((state) => state.task);
 
   const taskTitle = (event) => dispatch(setTitle(event.target.value));
-  const taskDescription = (event) =>
-    dispatch(setDescription(event.target.value));
+  const taskDescription = (event) => dispatch(setDescription(event.target.value));
   const taskPriority = (event) => dispatch(setPriority(event.target.value));
 
   const handleSubmit = (event) => {
@@ -43,8 +43,11 @@ const CreateTask = ({ addTodoMutation }) => {
 
 
   return (
-    <section className="card bg-[#1D232A] grid col-span-1 w-full">
+    <section className=" card bg-[#1D232A] grid col-span-1 w-[21rem] h-fit">
       <form className="card-body form" onSubmit={handleSubmit}>
+         <div className=''>
+            <h1 className='text-center font-figtree text-xl text-[#A6ADB9]'>New Task Todo</h1>
+         </div>
         <div className="form-control">
           <label htmlFor={title} className="label">
             <span className="label-text">Title</span>
@@ -57,6 +60,7 @@ const CreateTask = ({ addTodoMutation }) => {
             value={title}
             placeholder="e.g. Todo App Project"
             onChange={taskTitle}
+            maxLength={60}
           />
         </div>
         <div className="form-control">
@@ -71,6 +75,7 @@ const CreateTask = ({ addTodoMutation }) => {
             value={description}
             placeholder="Develop a new feature for the web application"
             onChange={taskDescription}
+            maxLength={230}
           />
         </div>
         <div className="form-control">
@@ -90,11 +95,12 @@ const CreateTask = ({ addTodoMutation }) => {
             <span className="label-text-alt">Low, Medium, High</span>
           </label>
         </div>
-        <div className="mt-6 grid grid-cols-2 gap-1 w-full">
-          <button type="reset" className="btn bg-[#29323C]" onClick={cancel}>
+        <div className="mt-6 grid grid-cols-2 gap-2 w-full">
+          <button type="reset" className="btn normal-case" onClick={cancel}>
             Cancel
           </button>
-          <button type="submit" className="btn bg-[#29323C]">
+          <button type="submit" className="btn btn-neutral normal-case">
+            {/* 29323C */}
             Create task
           </button>
         </div>
@@ -104,3 +110,8 @@ const CreateTask = ({ addTodoMutation }) => {
 };
 
 export default CreateTask;
+
+
+CreateTask.propTypes = {
+   addTodoMutation: PropTypes.object,
+}
