@@ -24,7 +24,7 @@ export default {
        "12/12": "95%",
      },
      backgroundColor: {
-      main_dark: "#1E1E20",
+      main_dark: "#191E24",
       pink_primary: "#F86465",
       pink_secondary: "#c94f51",
       priority: "#313136",
