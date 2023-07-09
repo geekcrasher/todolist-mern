@@ -25,7 +25,7 @@ function App() {
    }
 
   return (
-    <main className="min-h-screen w-full font-sans text-slate-100 bg-[#191E24] grid place-items-center">
+    <main className="min-h-screen w-full font-sans text-slate-100 bg-white  dark:bg-main_dark relative">
       <Navbar onClick={handleClick} isClick={isClick}/>
       <TodoList />
     </main>
