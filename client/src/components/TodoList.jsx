@@ -35,7 +35,7 @@ const TodoList = () => {
  });
 
   return (
-    <section className=" w-9/12 h-[38rem]">
+    <section className="absolute inset-x-40 inset-y-40 w-10/12 h-fit ">
       <section className="grid grid-cols-4 gap-10">
         <CreateTask addTodoMutation={addTodoMutation}/>
         <Task todos={todos} deleteTodoMutation={deleteTodoMutation} updateTodoMutation={updateTodoMutation}/>
