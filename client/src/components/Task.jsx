@@ -28,6 +28,13 @@ const Task = ({ todos, deleteTodoMutation, updateTodoMutation }) => {
     updateTodoMutation.mutate(updatedTask);
   };
 
+  const created = (created) => {
+   const month = new Date(created).getMonth() + 1
+   const date = new Date(created).getDate()
+   const year = new Date(created).getFullYear()
+   return `${month}/${date}/${year}`
+  }
+
   return (
     <section className="relative  col-span-3 w-full">
       <div className="mb-4">
@@ -35,7 +42,7 @@ const Task = ({ todos, deleteTodoMutation, updateTodoMutation }) => {
       </div>
       <section className="grid grid-cols-3 gap-3 col-span-3 w-full">
         {todos?.data?.map((todo) => {
-          const { _id, title, description, priority } = todo;
+          const { _id, title, description, priority, createdAt } = todo;
           return (
             <section
               key={_id}
@@ -47,12 +54,15 @@ const Task = ({ todos, deleteTodoMutation, updateTodoMutation }) => {
                 </h1>
               </div>
               <div className="h-28 ">
-                <p className="hyphens-manual text-[0.9rem] text-[#64686f] ">
+                <p className="hyphens-manual text-[0.9rem] text-[#7f848a] ">
                   {description}
                 </p>
               </div>
-              <div className=" badge badge-neutral mt-3">
-                <h1 className="text-xs">{priority}</h1>
+              <div className="flex justify-between items-center mt-3 ">
+                  <div className="badge badge-neutral">
+                     <h1 className="text-xs">{priority}</h1>
+                  </div>
+                  <span className="text-xs text-[#7f848a]">{created(createdAt)}</span>
               </div>
               <section className="absolute top-7 right-7">
                 <div className="dropdown dropdown-bottom dropdown-end">
