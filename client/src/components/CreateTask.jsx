@@ -22,10 +22,10 @@ const CreateTask = ({ addTodoMutation }) => {
 
     if ((title, description, priority)) {
       dispatch(
-        setTodo([
+        setTodo(
           ...todo,
           addTodoMutation.mutate({ title, description, priority }),
-        ])
+        )
       );
       dispatch(setTitle(""));
       dispatch(setDescription(""));
@@ -100,7 +100,6 @@ const CreateTask = ({ addTodoMutation }) => {
             Cancel
           </button>
           <button type="submit" className="btn btn-neutral normal-case">
-            {/* 29323C */}
             Create task
           </button>
         </div>
