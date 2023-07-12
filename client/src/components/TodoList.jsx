@@ -9,7 +9,6 @@ import {
   updateTask,
   deleteTask,
 } from "../api/apiHandler";
-import CreateTask from "./CreateTask";
 
 const TodoList = () => {
   const queryClient = useQueryClient();
@@ -35,10 +34,9 @@ const TodoList = () => {
  });
 
   return (
-    <section className="absolute inset-x-40 inset-y-40 w-10/12 h-fit ">
-      <section className="grid grid-cols-4 gap-10">
-        <CreateTask addTodoMutation={addTodoMutation}/>
-        <Task todos={todos} deleteTodoMutation={deleteTodoMutation} updateTodoMutation={updateTodoMutation}/>
+    <section className="flex justify-center absolute top-40 xxs:w-9/12 xs:w-10/12 sm:w-9/12 md:w-8/12 lg:w-11/12 xl:w-9/12 mxl:w-11/12 xxl:w-10/12 min-h-fit mx-2">
+      <section className="">
+        <Task todos={todos} addTodoMutation={addTodoMutation} deleteTodoMutation={deleteTodoMutation} updateTodoMutation={updateTodoMutation}/>
       </section>
       <>
         <Loading isLoading={isLoading} />
