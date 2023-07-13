@@ -49,42 +49,50 @@ const Task = ({
     <section className="w-fit ">
       <section className=" flex justify-between items-center  mb-12 px-3">
         <h1 className="font-figtree lg:text-xl text-[#A6ADB9]">Your todos</h1>
-        <button className="xxs:w-28 md:w-32 h-10 flex justify-evenly items-center rounded-lg bg-[#2fa199] hover:bg-[#058e85] active:bg-[#2fa199] normal-case text-xs md:text-sm text-white" onClick={addNewTask}>
+        <button
+          className="xxs:w-28 md:w-32 h-10 flex justify-evenly items-center rounded-lg bg-[#2fa199] hover:bg-[#058e85] active:bg-[#2fa199] normal-case text-xs md:text-sm text-white"
+          onClick={addNewTask}
+        >
           <span>
-            <Plus size={18} color="#f8fafc"/>
+            <Plus size={18} color="#f8fafc" />
           </span>
-          <span className="font-sans font-semibold text-xs lg:text-sm">Create task</span>
+          <span className="font-sans font-semibold text-xs lg:text-sm">
+            Create task
+          </span>
         </button>
       </section>
 
-      <section className=" grid sm:grid-cols-1 lg:grid-cols-2 mxl:grid-cols-3 xxl:grid-cols-4 gap-6 mx-3 mb-4 full">
+      <section className=" grid sm:grid-cols-1 lg:grid-cols-2 mxl:grid-cols-3 xxl:grid-cols-4 gap-6 p-4">
         {todos?.data?.map((todo) => {
           const { _id, title, description, priority, createdAt } = todo;
           return (
             <section
               key={_id}
-              className=" card relative w-full rounded-md h-60 py-4 px-5 bg-[#1D232A]"
+              className=" card relative w-fit rounded-md h-56 bg-[#1D232A]"
             >
-              <div className="overflow-hidden p-0 w-[19rem] mxl:w-64 h-14 mb-2 ">
-                <h1 className="break-words hyphens-manual card-title font-figtree text-[0.98rem] mxl:text-[0.94rem] text-[#058e85]">
-                  {title}
-                </h1>
-              </div>
-              <div className="h-28 py-1 mb-3 ">
-                <p className="tracking-wide hyphens-manual text-[0.78rem] mxl:text-[0.82rem] text-[#6a6e73]">
-                  {description}
-                </p>
-              </div>
-              <div className="flex justify-between items-center ">
-                <div className="badge badge-neutral">
-                  <p className="text-xs">{priority}</p>
-                </div>
-                <span className="text-xs text-[#7f848a]">
-                  {created(createdAt)}
-                </span>
-              </div>
+              <section className="w-full py-3.5 px-5">
+                <section className="overflow-hidden p-0 w-10/12  h-14">
+                  <h1 className="break-words hyphens-manual card-title font-figtree text-[0.88rem] xl:text-[0.90rem] text-[#058e85]">
+                    {title}
+                  </h1>
+                </section>
+                <section className=" h-24 mt-2 py-1">
+                  <p className="tracking-wide hyphens-manual text-[0.78rem] xs:text-[0.79rem] text-[#6a6e73]">
+                    {description}
+                  </p>
+                </section>
+                <section className=" flex items-center justify-between mt-4">
+                  <section className="badge badge-neutral">
+                    <p className="text-xs">{priority}</p>
+                  </section>
+                  <span className="text-xs text-[#7f848a]">
+                    {created(createdAt)}
+                  </span>
+                </section>
+              </section>
+
               <section className="absolute top-5 right-7">
-                <div className="dropdown dropdown-bottom dropdown-end">
+                <section className="dropdown dropdown-bottom dropdown-end">
                   <button tabIndex={0} className="">
                     <MoreHorizontal size={16} color="#A6ADB9" />
                   </button>
@@ -113,7 +121,7 @@ const Task = ({
                       </button>
                     </li>
                   </ul>
-                </div>
+                </section>
               </section>
             </section>
           );
