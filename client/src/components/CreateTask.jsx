@@ -83,7 +83,7 @@ const CreateTask = ({ addTodoMutation }) => {
                 value={description}
                 placeholder="Develop a new feature for the web application"
                 onChange={taskDescription}
-                maxLength={230}
+                maxLength={220}
               />
             </div>
             <div className="form-control">
