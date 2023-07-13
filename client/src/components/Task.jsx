@@ -47,7 +47,7 @@ const Task = ({
 
   return (
     <section className="w-fit ">
-      <section className="flex justify-between items-center">
+      <section className=" flex justify-between items-center  mb-12 px-3">
         <h1 className="font-figtree lg:text-xl text-[#A6ADB9]">Your todos</h1>
         <button className="xxs:w-28 md:w-32 h-10 flex justify-evenly items-center rounded-lg bg-[#2fa199] hover:bg-[#058e85] active:bg-[#2fa199] normal-case text-xs md:text-sm text-white" onClick={addNewTask}>
           <span>
@@ -57,7 +57,7 @@ const Task = ({
         </button>
       </section>
 
-      <section className=" grid sm:grid-cols-1 lg:grid-cols-2 mxl:grid-cols-3 xxl:grid-cols-4 gap-6 w-fit mt-14">
+      <section className=" grid sm:grid-cols-1 lg:grid-cols-2 mxl:grid-cols-3 xxl:grid-cols-4 gap-6 mx-3 mb-4 full">
         {todos?.data?.map((todo) => {
           const { _id, title, description, priority, createdAt } = todo;
           return (
@@ -77,7 +77,7 @@ const Task = ({
               </div>
               <div className="flex justify-between items-center ">
                 <div className="badge badge-neutral">
-                  <h1 className="text-xs">{priority}</h1>
+                  <p className="text-xs">{priority}</p>
                 </div>
                 <span className="text-xs text-[#7f848a]">
                   {created(createdAt)}
