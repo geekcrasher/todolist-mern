@@ -34,7 +34,7 @@ const TodoList = () => {
  });
 
   return (
-    <section className="flex justify-center absolute top-36 xxs:w-9/12 xs:w-10/12 sm:w-9/12 md:w-8/12 lg:w-11/12 xl:w-9/12 mxl:w-11/12 xxl:w-10/12 min-h-fit ">
+    <section className="flex justify-center absolute top-36 xxs:w-11/12 xs:w-10/12 sm:w-9/12 md:w-8/12 lg:w-11/12 xl:w-9/12 mxl:w-10/12 xxl:w-10/12 min-h-fit ">
       <section className="">
         <Task todos={todos} addTodoMutation={addTodoMutation} deleteTodoMutation={deleteTodoMutation} updateTodoMutation={updateTodoMutation}/>
       </section>
