@@ -16,7 +16,7 @@ const Navbar = ({ onClick, isClick }) => {
       </NavLink>
       <section className="flex items-center ">
           <button onClick={onClick} className=" hover:bg-transparent border-none rounded-md active:motion-safe:animate-spin lowercase">
-            {isClick ? <MoonStar color="#A6ADB9" size={22}/> : <Sun color="#A6ADB9" />}
+            {isClick ? <MoonStar color="#A6ADB9" size={20}/> : <Sun color="#A6ADB9" size={20}/>}
           </button>
       </section>
     </nav>
