@@ -34,15 +34,15 @@ const TodoList = () => {
  });
 
   return (
-    <section className="flex justify-center absolute top-36 xxs:w-11/12 xs:w-10/12 sm:w-9/12 md:w-8/12 lg:w-11/12 xl:w-9/12 mxl:w-10/12 xxl:w-10/12 min-h-fit ">
-      <section className="">
+    <section className="flex justify-center absolute top-36 xxs:w-11/12 xs:w-10/12 sm:w-9/12 md:w-8/12 lg:w-11/12 xl:w-9/12 mxl:w-10/12 xxl:w-10/12 min-h-[40rem] border mb-10">
+      <section className=" z-10 w-full">
         <Task todos={todos} addTodoMutation={addTodoMutation} deleteTodoMutation={deleteTodoMutation} updateTodoMutation={updateTodoMutation}/>
       </section>
-      <>
+      <section className="border w-full absolute flex justify-center items-center">
         <Loading isLoading={isLoading} />
         <Error isError={isError} />
         <EmptyTask todos={todos} />
-      </>
+      </section>
     </section>
   );
 };
