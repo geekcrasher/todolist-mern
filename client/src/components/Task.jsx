@@ -46,11 +46,11 @@ const Task = ({
   };
 
   return (
-    <section className="w-fit ">
-      <section className=" flex justify-between items-center  mb-12 px-3">
+    <section className="w-full  p-4">
+      <section className=" flex justify-between items-center  mb-12">
         <h1 className="font-figtree lg:text-xl text-[#A6ADB9]">Your todos</h1>
         <button
-          className="xxs:w-28 md:w-32 h-10 flex justify-evenly items-center rounded-lg bg-[#2fa199] hover:bg-[#058e85] active:bg-[#2fa199] normal-case text-xs md:text-sm text-white"
+          className="xxs:w-28 md:w-32 h-10 flex justify-evenly outline-0 items-center rounded-lg bg-[#2fa199] hover:bg-[#058e85] active:bg-[#2fa199] normal-case text-xs md:text-sm text-white"
           onClick={addNewTask}
         >
           <span>
@@ -62,17 +62,17 @@ const Task = ({
         </button>
       </section>
 
-      <section className=" grid sm:grid-cols-1 lg:grid-cols-2 mxl:grid-cols-3 xxl:grid-cols-4 gap-6 p-4">
+      <section className=" grid sm:grid-cols-1 lg:grid-cols-2 mxl:grid-cols-3 xxl:grid-cols-4 gap-6">
         {todos?.data?.map((todo) => {
           const { _id, title, description, priority, createdAt } = todo;
           return (
             <section
               key={_id}
-              className=" card relative w-fit rounded-md h-56 bg-[#1D232A]"
+              className=" card relative rounded-md h-56 bg-[#1D232A]"
             >
               <section className="w-full py-3.5 px-5">
-                <section className="overflow-hidden p-0 w-10/12  h-14">
-                  <h1 className="break-words hyphens-manual card-title font-figtree text-[0.88rem] xl:text-[0.90rem] text-[#058e85]">
+                <section className="break-words  overflow-hidden p-0 w-11/12 border h-14">
+                  <h1 className="hyphens-manual card-title font-figtree text-[0.88rem] xl:text-[0.90rem] text-[#058e85]">
                     {title}
                   </h1>
                 </section>
@@ -145,6 +145,7 @@ export default Task;
 
 Task.propTypes = {
   todos: PropTypes.object,
+  addTodoMutation: PropTypes.object,
   deleteTodoMutation: PropTypes.object,
   updateTodoMutation: PropTypes.object,
 };
