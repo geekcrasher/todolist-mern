@@ -1,31 +1,52 @@
-import PropTypes from "prop-types";
-import { ListTodo, MoonStar,  Sun } from "lucide-react";
+import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { ListTodo} from "lucide-react";
+import DarkLightMode from "./DarkLightMode";
 
-const Navbar = ({ onClick, isClick }) => {
+const Navbar = () => {
 
+   const [theme, setTheme] = useState('light')
 
+   useEffect(() => {
+      if(theme === "dark") {
+         document.documentElement.classList.add("dark")
+      }
+      else {
+         document.documentElement.classList.remove("dark")
+      }
+
+   }, [theme])
+
+  useEffect(() => {
+
+    if(theme === "dark") {
+      document.documentElement.classList.add("dark")
+   }
+   else {
+      document.documentElement.classList.remove("dark")
+   }
+  }, [theme]);
+
+  const handleClick = () => {
+   setTheme(theme === "dark" ? "light" : "dark")
+   }
+   
   return (
-    <nav className=" h-24 flex items-center justify-between fixed top-0 z-20 w-full px-6 dark:bg-[#191E24]">
+    <nav className="navbar bg-base-100 h-20 flex items-center justify-between fixed top-0 z-50 border w-full px-6">
       <NavLink to={"/todo"} className="flex items-center cursor-pointer">
          <span><ListTodo color="#A6ADB9" size={24} /></span>
-         <span className="font-figtree lg:text-xl ml-2 text-[#1E2936] dark:text-[#A6ADB9] lowercase">
+         <span className="font-figtree lg:text-xl ml-2 lowercase">
             Task
          </span>
          <span className="font-figtree lg:text-xl text-[#00D1A7] normal-case">Tracker</span>
       </NavLink>
-      <section className="flex items-center ">
-          <button onClick={onClick} className=" hover:bg-transparent border-none rounded-md active:motion-safe:animate-spin lowercase">
-            {isClick ? <MoonStar color="#A6ADB9" size={20}/> : <Sun color="#A6ADB9" size={20}/>}
-          </button>
+      <section className="flex items-center mt-2">
+         <button onClick={handleClick}>
+            <DarkLightMode />
+         </button>
       </section>
     </nav>
   );
 };
 
 export default Navbar;
-
-Navbar.propTypes = {
-  onClick: PropTypes.func,
-  isClick: PropTypes.bool,
-};

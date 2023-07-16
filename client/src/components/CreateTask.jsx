@@ -47,12 +47,12 @@ const CreateTask = ({ addTodoMutation }) => {
       <dialog id="my_modal_2" className="modal">
         <form
           method="dialog"
-          className="modal-box form bg-[#1D232A] w-80 h-fit"
+          className="modal-box form w-80 h-fit"
           onSubmit={handleSubmit}
         >
           <div className="">
             <div className="mb-2">
-              <h1 className="text-center font-figtree text-lg text-[#A6ADB9]">
+              <h1 className="text-center font-figtree text-lg">
                New task
               </h1>
             </div>
@@ -61,7 +61,7 @@ const CreateTask = ({ addTodoMutation }) => {
                 <span className="label-text">Title</span>
               </label>
               <input
-                className="input border-[#42454a] w-full max-w-xs text-sm placeholder:text-sm"
+                className="input border-[#dbdddf] w-full max-w-xs text-sm placeholder:text-sm"
                 type="text"
                 name="title"
                 id="title"
@@ -76,7 +76,7 @@ const CreateTask = ({ addTodoMutation }) => {
                 <span className="label-text">Description</span>
               </label>
               <input
-                className="input border-[#42454a] truncate w-full max-w-xs text-sm placeholder:text-sm"
+                className="input border-[#dbdddf] truncate w-full max-w-xs text-sm placeholder:text-sm"
                 type="text"
                 name="description"
                 id="description"
@@ -91,7 +91,7 @@ const CreateTask = ({ addTodoMutation }) => {
                 <span className="label-text">Priority</span>
               </label>
               <input
-                className="input border-[#42454a] w-full max-w-xs text-sm placeholder:text-sm"
+                className="input border-[#dbdddf] w-full max-w-xs text-sm placeholder:text-sm"
                 type="text"
                 name="priority"
                 id="priority"
