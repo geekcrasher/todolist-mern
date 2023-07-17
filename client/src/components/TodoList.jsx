@@ -35,13 +35,16 @@ const TodoList = () => {
  });
 
   return (
-   // overflow-y-scroll scrollbar-hide
-    <section className="border mb-96 flex justify-center absolute top-32 z-10 xxs:w-11/12 xs:w-10/12 sm:w-9/12 md:w-8/12 lg:w-11/12 xl:w-9/12 mxl:w-10/12 xxl:w-10/12 min-h-[52rem]">
-      <section className="w-full relative">
+   // overflow-y-scroll scrollbar-hide absolute top-32 z-10 flex justify-center
+   // w-11/12 xs:w-10/12 sm:w-9/12 md:w-8/12 lg:w-11/12 xl:w-9/12 mxl:w-10/12 xxl:w-10/12 h-fit
+    <section className="border w-11/12 xs:w-10/12 sm:w-9/12 md:w-8/12 lg:w-11/12 xl:w-9/12 mxl:w-10/12 xxl:w-10/12 mt-32 mb-20 mx-auto h-fit">
+      {/* w-full relative*/}
+      <section className=" ">
         <TodoListHeader />
         <Tasks todos={todos} addTodoMutation={addTodoMutation} deleteTodoMutation={deleteTodoMutation} updateTodoMutation={updateTodoMutation}/>
       </section>
-      <section className=" w-full h-full absolute flex justify-center items-center">
+      {/* absolute flex justify-center items-center*/}
+      <section className="  ">
         <Loading isLoading={isLoading} />
         <Error isError={isError} />
         <EmptyTask todos={todos} />

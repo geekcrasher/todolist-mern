@@ -43,30 +43,31 @@ const Task = ({
   };
 
   return (
-    <section className="w-full px-4 mt-10 relative z-10">
+   // w-full px-4 mt-10 relative z-10
+    <section className=" px-4 mt-10 ">
       <section className=" grid sm:grid-cols-1 lg:grid-cols-2 mxl:grid-cols-3 xxl:grid-cols-4 gap-6">
         {todos?.data?.map((todo) => {
           const { _id, title, description, priority, createdAt } = todo;
           return (
             <section
               key={_id}
-              className="card relative rounded-md h-[14rem] bg-neutral"
+            //   relative
+              className="card  rounded-md h-[14rem] bg-neutral"
             >
-              <section className="card-body w-full py-3.5 px-5">
+               {/* w-full */}
+              <section className="card-body py-3.5 px-5">
                 <section className="break-words  overflow-hidden p-0 w-11/12 h-14">
                   <h1 className="hyphens-manual card-title font-figtree text-[0.88rem] xl:text-[0.90rem] text-[#058e85]">
                     {title}
                   </h1>
                 </section>
                 <section className="h-24 mt-2 py-1">
-                  <p className="tracking-wide hyphens-manual text-[0.78rem] xs:text-[0.79rem] text-[#6a6e73]">
+                  <p className="tracking-wide hyphens-manual text-[0.78rem] xs:text-[0.79rem] text-[#7f848a]">
                     {description}
                   </p>
                 </section>
                 <section className="flex items-center justify-between mt-1">
-                  <section className="badge badge-accent badge-sm">
-                    <p className="text-xs ">{priority}</p>
-                  </section>
+                  <p className="text-xs text-[#7f848a] font-semibold">{priority}</p>
                   <span className="text-xs text-[#7f848a]">
                     {created(createdAt)}
                   </span>
