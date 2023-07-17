@@ -1,13 +1,13 @@
 import "./App.css";
 import Footer from "./components/Footer";
-import Navbar from './components/Navbar'
+import Header from './components/Header'
 import TodoList from "./components/TodoList";
 import { Route, Router, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <main className="min-h-screen w-full relative flex justify-center">
-      <Navbar />
+    <main className="min-h-screen w-full relative flex flex-col">
+      <Header />
       <TodoList />
       <Footer />
     </main>
