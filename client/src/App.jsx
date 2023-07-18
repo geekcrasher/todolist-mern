@@ -1,7 +1,7 @@
 import "./App.css";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 import Header from './components/Header'
-import TodoList from "./components/TodoList";
+import TodoList from "./components/TodoList/TodoList";
 import { Route, Router, Routes } from "react-router-dom";
 
 function App() {
