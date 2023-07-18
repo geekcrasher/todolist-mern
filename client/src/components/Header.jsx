@@ -27,19 +27,16 @@ const Navbar = () => {
   };
 
   return (
-    // fixed top-0 z-50
-    <header className="navbar fixed top-0 z-10 bg-base-100 h-20 flex items-center justify-between border px-6">
-      {/* <nav className="navbar"> */}
+    <header className="navbar fixed top-0 z-10 bg-base-100 h-20 flex items-center justify-between  px-6">
         <NavLink to={"/todo"} className="flex items-center cursor-pointer">
           <span>
             <ListTodo color="#A6ADB9" size={24} />
           </span>
           <span className="font-figtree lg:text-lg ml-2 lowercase">Task</span>
-          <span className="font-figtree lg:text-xl text-[#00D1A7] normal-case">
+          <span className="font-figtree lg:text-lg text-[#00D1A7] normal-case">
             Tracker
           </span>
         </NavLink>
-      {/* </nav> */}
       <section className="flex items-center mt-2">
         <button onClick={handleClick}>
           <DarkLightMode />
