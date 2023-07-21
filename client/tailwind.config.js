@@ -15,18 +15,22 @@ export default {
         xxl: "1680px",
       },
       fontFamily: {
-        "noto-sans": ["Noto Sans", "sans-serif"],
         figtree: ["Figtree", "sans-serif"],
       },
       width: {
         "12/12": "95%",
+      },
+      textColor: {
+         lightgray: "#8E949A",
+         accent_light: "#00D1A7",
+         accent_dark: "#058e85",
       },
       backgroundColor: {
         main_dark: "#191E24",
         pink_primary: "#F86465",
         pink_secondary: "#c94f51",
         priority: "#313136",
-        task: "#F6F6F7",
+        task: "#F9FBFA",
         task_dark: "#252529",
         highlight: "#e2e2e3",
       },
@@ -34,7 +38,4 @@ export default {
   },
   plugins: [require("daisyui"), require("tailwind-scrollbar-hide")],
 
-  daisyui: {
-   theme: ['dark', 'light'],
-  }
 };
