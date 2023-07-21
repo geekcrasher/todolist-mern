@@ -16,8 +16,7 @@ const CreateTaskModal = ({ addTodoMutation }) => {
   );
 
   const taskTitle = (event) => dispatch(setTitle(event.target.value));
-  const taskDescription = (event) =>
-    dispatch(setDescription(event.target.value));
+  const taskDescription = (event) => dispatch(setDescription(event.target.value));
   const taskPriority = (event) => dispatch(setPriority(event.target.value));
 
   const handleSubmit = (event) => {
@@ -49,49 +48,53 @@ const CreateTaskModal = ({ addTodoMutation }) => {
       <dialog id="my_modal_2" className="modal">
         <form
           method="dialog"
-          className="modal-box form w-80 h-fit"
+          className="modal-box form w-80 h-fit bg-white"
           onSubmit={handleSubmit}
         >
-          <h1 className="text-center font-figtree text-md mb-2">New task</h1>
+          <h1 className="text-center font-figtree text-md mb-2 text-[#333]">New task</h1>
 
           <FormControl htmlFor={title} label="Title">
             <input
-              className="input border-[#dbdddf] w-full max-w-xs text-sm placeholder:text-sm"
+              className="input bg-inherit border-[#dbdddf] w-full max-w-xs text-sm text-gray-900 placeholder:text-sm"
               type="text"
               name="title"
               id="title"
               value={title}
               placeholder="e.g. Todo App Project"
               onChange={taskTitle}
+              autoComplete="off"
               maxLength={60}
             />
           </FormControl>
 
           <FormControl htmlFor={description} label="Description">
             <input
-              className="input border-[#dbdddf] truncate w-full max-w-xs text-sm placeholder:text-sm"
+              className="input bg-inherit border-[#dbdddf] truncate w-full max-w-xs text-sm text-gray-900 placeholder:text-sm"
               type="text"
               name="description"
               id="description"
               value={description}
               placeholder="Develop a new feature for the web application"
               onChange={taskDescription}
+              autoComplete="off"
               maxLength={220}
             />
           </FormControl>
 
           <FormControl htmlFor={priority} label="Priority">
             <input
-              className="input border-[#dbdddf] w-full max-w-xs text-sm placeholder:text-sm"
+              className="input bg-inherit border-[#dbdddf] w-full max-w-xs text-sm text-gray-900 placeholder:text-sm"
               type="text"
               name="priority"
               id="priority"
               value={priority}
               placeholder="Medium"
               onChange={taskPriority}
+              autoComplete="off"
+              maxLength={6}
             />
             <label className="label">
-              <span className="label-text-alt">Low, Medium, High</span>
+              <span className="label-text-alt text-[#333] font-medium">Low, Medium, High</span>
             </label>
           </FormControl>
 
