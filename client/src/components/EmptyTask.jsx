@@ -1,27 +1,26 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-const EmptyTask = ({todos}) => {
-   return ( 
-      <div className="flex justify-center sm:mt-20 border-sky-600">
+const EmptyTask = ({ todos }) => {
+  return (
+    <section className="flex justify-center mt-20">
       {todos?.data?.length < 1 && (
-        <div className="text-center ">
-          <div className="xs:w-64 md:w-72 border-sky-600 ">
-            <img src="./images/no-data-pana.svg" alt="error" />
-          </div>
-          <div className="">
-            <p className="xs:text-xs md:text-sm text-neutral-400 font-semibold mt-4">
-               Nothing on your to-do list right now
-            </p>
-          </div>
-        </div>
+        <figure>
+          <img 
+            src="./images/no-data-pana.svg" 
+            alt="error" 
+            className="w-56 xs:w-64 xxl:w-72"
+          />
+          <figcaption className="text-xs md:text-sm text-zinc-400 mt-3 text-center">
+            Nothing on your to-do list right now
+          </figcaption>
+        </figure>
       )}
-    </div>
-    );
-}
- 
+    </section>
+  );
+};
+
 export default EmptyTask;
 
-
 EmptyTask.propTypes = {
-   todos: PropTypes.object,
-}
+  todos: PropTypes.object,
+};

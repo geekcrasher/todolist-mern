@@ -1,28 +1,21 @@
-import PropTypes from 'prop-types';
-import ClipLoader from "react-spinners/ClipLoader";
+import PropTypes from "prop-types";
+// import ClipLoader from "react-spinners/ClipLoader";
 
 const Loading = ({ isLoading }) => {
   return (
-    <div className="absolute top-40 text-center">
+    <section className="text-center mt-20">
       {isLoading && (
         <>
-          <ClipLoader
-            className="loading"
-            color={"#CB4E51"}
-            loading={isLoading}
-            size={30}
-            aria-label="Loading Spinner"
-            data-testid="loader"
-          />
-          <h2 className="xs:text-sm text-md font-medium text-secondary">Loading...</h2>
+          <span className="loading loading-spinner loading-xs md:loading-md text-zinc-400"></span>
+          <p className="text-sm md:text-base text-zinc-400 mt-3">Loading...</p>
         </>
       )}
-    </div>
+    </section>
   );
 };
 
 export default Loading;
 
 Loading.propTypes = {
-   isLoading: PropTypes.bool,
-}
+  isLoading: PropTypes.bool,
+};

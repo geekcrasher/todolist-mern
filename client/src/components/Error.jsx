@@ -2,26 +2,27 @@ import PropTypes from "prop-types";
 
 const Error = ({ isError }) => {
   return (
-    <div className="flex justify-center items-center sm:mt-16 md:mt-0">
+    <section className="flex justify-center">
       {isError && (
-        <div className="text-center">
-          <div className="xs:w-64 md:w-72">
-            <img src="./images/no-data.svg" alt="error" />
-          </div>
-          <div className="">
-            <p className="xs:text-xs md:text-sm text-neutral-400 font-semibold mb-6">
-              Sorry! A network error occurred.
-            </p>
-            <a
-              href="/"
-              className="bg-blue-600 py-2 px-2 rounded-md text-xs md:text-sm text-gray-100 font-semibold pointer"
+        <figure className="text-center ">
+          <img
+            src="./images/no-data.svg"
+            alt="error"
+            className="w-56 lg:w-64 xxl:w-72 "
+          />
+          <figcaption className="text-xs md:text-sm text-zinc-500 mt-1 text-center">
+            Sorry! A network error occurred.
+          </figcaption>
+          <button className="mt-5">
+            <a href="/"
+              className="bg-blue-600 py-2 px-2 rounded-md text-xs md:text-sm text-gray-100 font-semibold cursor-pointer"
             >
               Refresh the page
             </a>
-          </div>
-        </div>
+          </button>
+        </figure>
       )}
-    </div>
+    </section>
   );
 };
 
@@ -30,3 +31,12 @@ export default Error;
 Error.propTypes = {
   isError: PropTypes.bool,
 };
+
+{
+  /* <a
+  href="/"
+  className="bg-blue-600 py-2 px-2 rounded-md text-xs md:text-sm text-gray-100 font-semibold pointer"
+>
+  Refresh the page
+</a>; */
+}
