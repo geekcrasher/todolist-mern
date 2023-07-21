@@ -4,7 +4,7 @@ export const FormControl = ({htmlFor, label, children}) => {
    return ( 
       <fieldset className='form-control'>
          <label htmlFor={htmlFor} className="label">
-            <span className="label-text">{label}</span>
+            <span className="label-text text-[#333] font-medium">{label}</span>
          </label>
          {children}
       </fieldset>
