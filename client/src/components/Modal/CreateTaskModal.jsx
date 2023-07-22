@@ -63,7 +63,7 @@ const CreateTaskModal = ({ addTodoMutation }) => {
               placeholder="e.g. Todo App Project"
               onChange={taskTitle}
               autoComplete="off"
-              maxLength={60}
+              maxLength={50}
             />
           </FormControl>
 
