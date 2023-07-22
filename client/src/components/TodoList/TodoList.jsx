@@ -35,9 +35,9 @@ const TodoList = () => {
  });
 
   return (
-    <section className="border relative min-h-[42rem] rounded-3xl overflow-hidden w-11/12 xs:w-10/12 sm:w-9/12 md:w-8/12 lg:w-11/12 xl:w-9/12 mxl:w-10/12 xxl:w-9/12 mt-32 mb-20 mx-auto">
+    <section className="relative min-h-[42rem] rounded-3xl overflow-hidden w-11/12 xs:w-10/12 sm:w-9/12 md:w-8/12 lg:w-11/12 xl:w-9/12 mt-32 mb-20 mx-auto">
       <section className="px-6 pt-10">
-        <TodoListHeader />
+        <TodoListHeader todos={todos}/>
         <Tasks 
             todos={todos} 
             addTodoMutation={addTodoMutation} 
