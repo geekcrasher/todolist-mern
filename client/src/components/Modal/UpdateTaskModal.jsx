@@ -2,7 +2,11 @@ import PropTypes from "prop-types";
 import { FormControl } from "../Form/FormControl";
 import UpdateTaskActions from "./Actions/UpdateTaskActions";
 
-const UpdateTaskModal = ({updatedTask, saveUpdatedTask, setUpdatedTask }) => {
+const UpdateTaskModal = ({updatedTask, setUpdatedTask, updateTodoMutation }) => {
+
+   const saveUpdatedTask = () => {
+      updateTodoMutation.mutate(updatedTask);
+    };
 
    const handleChange = (event) => {
       const { name, value } = event.target;
@@ -30,7 +34,7 @@ const UpdateTaskModal = ({updatedTask, saveUpdatedTask, setUpdatedTask }) => {
               value={updatedTask.title ? updatedTask.title : ""}
               onChange={handleChange}
               autoComplete="off"
-              maxLength={60}
+              maxLength={50}
             />
           </FormControl>
 
@@ -76,7 +80,6 @@ export default UpdateTaskModal;
 // Prop types
 UpdateTaskModal.propTypes = {
   updatedTask: PropTypes.object,
-  handleChange: PropTypes.func,
-  saveUpdatedTask: PropTypes.func,
+  updateTodoMutation: PropTypes.object,
   setUpdatedTask: PropTypes.func,
 };
