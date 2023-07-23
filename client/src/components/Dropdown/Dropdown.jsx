@@ -13,8 +13,6 @@ const Dropdown = ({ setUpdatedTask, deleteTodoMutation, todo, _id }) => {
   };
 
   return (
-    // absolute top-5 right-5
-
      <section className="w-11 flex pt-1 justify-center card-actions dropdown dropdown-bottom dropdown-end">
        <button tabIndex={0} >
          <MoreHorizontal size={16} color="#000" />
