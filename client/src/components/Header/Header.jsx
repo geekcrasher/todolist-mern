@@ -31,6 +31,8 @@ const Header = () => {
             Tracker
           </span>
         </Link>
+
+        {/* uncomment the code below to enable the darkmode feature */}
       {/* <section className="flex items-center mt-2">
          <DarkLightMode onClick={handleClick} isClick={isClick}/>
       </section> */}
