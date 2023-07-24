@@ -2,45 +2,62 @@ import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setTodo,
-  setTitle,
-  setDescription,
-  setPriority,
+//   setTitle,
+//   setDescription,
+//   setPriority,
 } from "../../features/taskReducer";
 import { FormControl } from "../Form/FormControl";
 import CreateTaskActions from "./Actions/CreateTaskActions";
 
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
 const CreateTaskModal = ({ addTodoMutation }) => {
   const dispatch = useDispatch();
-  const { todo, title, description, priority } = useSelector(
-    (state) => state.task
-  );
+//   , title, description, priority
+  const { todo } = useSelector((state) => state.task);
 
-  const taskTitle = (event) => dispatch(setTitle(event.target.value));
-  const taskDescription = (event) => dispatch(setDescription(event.target.value));
-  const taskPriority = (event) => dispatch(setPriority(event.target.value));
+  // * Form validation using React Hook Form and Zod
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const TaskInfoSchema = z.object({
+    title: z
+      .string()
+      .min(1, { message: "A Title is required" })
+      .max(50, { message: "Must not be exceeded to 50 characters long" }),
+    description: z
+      .string()
+      .min(1, { message: "A description is required" })
+      .max(220, { message: "Must not be exceeded to 50 characters long" }),
+    priority: z
+      .string()
+      .min(3, { message: "A priority type is required" })
+      .max(6),
+  });
 
-    if ((title, description, priority)) {
-      dispatch(
-        setTodo([
-          ...todo,
-          addTodoMutation.mutate({ title, description, priority }),
-        ])
-      );
-      dispatch(setTitle(""));
-      dispatch(setDescription(""));
-      dispatch(setPriority(""));
-    } else {
-      console.log("Input cannot be empty!");
-    }
-  };
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState : { errors }
+  } = useForm({
+    resolver: zodResolver(TaskInfoSchema),
+    defaultValues: {
+      title: "",
+      description: "",
+      priority: "",
+    },
+  });
 
-  const cancel = () => {
-    dispatch(setTitle(""));
-    dispatch(setDescription(""));
-    dispatch(setPriority(""));
+
+  const submit = (data) => {
+   console.log(data)
+
+   dispatch(setTodo([...todo, addTodoMutation.mutate(data)]))
+
+      // dispatch(setTitle(""));
+      // dispatch(setDescription(""));
+      // dispatch(setPriority(""));
   };
 
   return (
@@ -49,57 +66,53 @@ const CreateTaskModal = ({ addTodoMutation }) => {
         <form
           method="dialog"
           className="modal-box form w-80 h-fit bg-white"
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(submit)}
         >
           <h1 className="text-center font-figtree text-md mb-2 text-[#333]">New task</h1>
 
-          <FormControl htmlFor={title} label="Title">
+          <FormControl htmlFor='title' label="Title">
             <input
+              {...register("title")}
               className="input bg-inherit border-[#dbdddf] w-full max-w-xs text-sm text-gray-900 placeholder:text-sm"
               type="text"
-              name="title"
               id="title"
-              value={title}
               placeholder="e.g. Todo App Project"
-              onChange={taskTitle}
               autoComplete="off"
-              maxLength={50}
-            />
-          </FormControl>
-
-          <FormControl htmlFor={description} label="Description">
-            <input
-              className="input bg-inherit border-[#dbdddf] truncate w-full max-w-xs text-sm text-gray-900 placeholder:text-sm"
-              type="text"
-              name="description"
-              id="description"
-              value={description}
-              placeholder="Develop a new feature for the web application"
-              onChange={taskDescription}
-              autoComplete="off"
-              maxLength={220}
-            />
-          </FormControl>
-
-          <FormControl htmlFor={priority} label="Priority">
-            <input
-              className="input bg-inherit border-[#dbdddf] w-full max-w-xs text-sm text-gray-900 placeholder:text-sm"
-              type="text"
-              name="priority"
-              id="priority"
-              value={priority}
-              placeholder="Medium"
-              onChange={taskPriority}
-              autoComplete="off"
-              maxLength={6}
             />
             <label className="label">
-              <span className="label-text-alt text-[#333] font-medium">Low, Medium, High</span>
+             {errors.title?.message && <span className="label-text-alt text-error">{errors.title?.message}</span>}
             </label>
           </FormControl>
 
-          <CreateTaskActions cancel={cancel} />
-          
+          <FormControl htmlFor='description' label="Description">
+            <input
+              {...register("description")}
+              className="input bg-inherit border-[#dbdddf] truncate w-full max-w-xs text-sm text-gray-900 placeholder:text-sm"
+              type="text"
+              id="description"
+              placeholder="Develop a new feature for the web application"
+              autoComplete="off"
+            />
+            <label className="label">
+               {errors.description?.message && <span className="label-text-alt text-error">{errors.description?.message}</span>}
+            </label>
+          </FormControl>
+
+          <FormControl htmlFor='priority' label="Priority">
+            <input
+              {...register("priority")}
+              className="input bg-inherit border-[#dbdddf] w-full max-w-xs text-sm text-gray-900 placeholder:text-sm"
+              type="text"
+              id="priority"
+              placeholder="Medium"
+              autoComplete="off"
+            />
+            <label className="label">
+              {errors.priority?.message && <span className="label-text-alt text-error">{errors.priority?.message}</span>}
+            </label>
+          </FormControl>
+
+          <CreateTaskActions reset={reset}/>
         </form>
 
         <form method="dialog" className="modal-backdrop">
