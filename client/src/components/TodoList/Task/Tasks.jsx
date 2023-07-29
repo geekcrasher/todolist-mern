@@ -24,25 +24,23 @@ const Tasks = ({
   };
 
   return (
-    <section className=" mt-10 mb-10">
+    <section className="mt-10 mb-10">
       <section className="grid sm:grid-cols-1 lg:grid-cols-2 mxl:grid-cols-3 xxl:grid-cols-4 gap-6">
         {todos?.data?.map((todo) => {
-          const { _id, title, description, priority, createdAt } = todo;
+
+          /**
+           * * todo contains the following properties
+           * * const { _id, title, description, priority, createdAt, updatedAt } = todo;
+           */
           return (
             <section
-              key={_id}
-              className={`${priorityImage(priority)} h-56 rounded-xl px-5 pt-7 pb-3 shadow border`}
+              key={todo._id}
+              className={`${priorityImage(todo.priority)} h-56 rounded-xl px-5 pt-7 pb-3 shadow border`}
             >
-              {/* Task details */}
               <TaskDetails
-                title={title}
-                description={description}
-                priority={priority}
-                createdAt={createdAt}
-                _id={_id}
+                todo={todo}
                 setUpdatedTask={setUpdatedTask}
                 deleteTodoMutation={deleteTodoMutation}
-                todo={todo}
               />
             </section>
           );
