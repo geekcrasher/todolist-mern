@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Trash2, Edit3, MoreHorizontal } from "lucide-react";
 
 const Dropdown = ({ setUpdatedTask, deleteTodoMutation, todo, _id }) => {
-   
+
   const updateTask = (todo) => {
     setUpdatedTask(todo);
     window.my_modal_1.showModal();
@@ -23,17 +23,13 @@ const Dropdown = ({ setUpdatedTask, deleteTodoMutation, todo, _id }) => {
        >
          <li className="text-slate-900">
            <button className="hover:text-slate-900" onClick={() => updateTask(todo)}>
-             <span>
-               <Edit3 size={14} />
-             </span>
+             <Edit3 size={14} />
              <span>Update</span>
            </button>
          </li>
          <li className="text-slate-900">
            <button className="hover:text-slate-900" onClick={() => deleteTask(_id)}>
-             <span>
-               <Trash2 size={14} />
-             </span>
+             <Trash2 size={14} />
              <span>Delete</span>
            </button>
          </li>
