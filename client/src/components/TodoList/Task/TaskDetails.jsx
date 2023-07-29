@@ -3,15 +3,12 @@ import { ChevronsUp, Calendar } from "lucide-react";
 import Dropdown from "../../Dropdown/Dropdown";
 
 const TaskDetails = ({
-  _id,
-  title,
-  description,
-  priority,
-  createdAt,
   setUpdatedTask,
   deleteTodoMutation,
   todo,
 }) => {
+
+   const { _id, title, description, priority, createdAt } = todo
 
   const priorityColor = (priority) => {
    if (priority == "Low") {
@@ -75,12 +72,6 @@ const TaskDetails = ({
 export default TaskDetails;
 
 TaskDetails.propTypes = {
-  _id: PropTypes.string,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  priority: PropTypes.string,
-  createdAt: PropTypes.string,
-  priorityType: PropTypes.func,
   setUpdatedTask: PropTypes.func,
   deleteTodoMutation: PropTypes.object,
   todo: PropTypes.object,
