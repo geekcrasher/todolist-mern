@@ -6,7 +6,8 @@ import CreateTaskActions from "./Actions/CreateTaskActions";
 
 import { useForm, useController } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { TaskInfoSchema } from "../../model/Task";
+import { CreateTaskSchema } from "../../model/Task";
+import { priorityOptions } from "./priorityOptions";
 import { useState } from "react";
 
 const CreateTaskModal = ({ addTodoMutation }) => {
@@ -20,7 +21,7 @@ const CreateTaskModal = ({ addTodoMutation }) => {
     control,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(TaskInfoSchema),
+    resolver: zodResolver(CreateTaskSchema),
     defaultValues: {
       title: "",
       description: "",
@@ -28,8 +29,13 @@ const CreateTaskModal = ({ addTodoMutation }) => {
     },
   });
 
+  const { field } = useController({ name: 'priority', control })
+
+  const [click, setClick] = useState(false)
+
   const submit = (data) => {
     dispatch(setTodo([...todo, addTodoMutation.mutate(data)]));
+    setClick(!click)
     reset({});
   };
 
@@ -81,14 +87,21 @@ const CreateTaskModal = ({ addTodoMutation }) => {
         </FormControl>
 
         <FormControl htmlFor="priority" label="Priority">
-          <input
-            {...register("priority")}
-            className={`${errors.priority && "input-error border-error"} input bg-inherit border-[#e0e0e0] w-full max-w-xs text-sm text-gray-900 placeholder:text-sm`}
-            type="text"
+          <select  
+            className={`${errors.priority && "input-error border-error"} select bg-inherit border-[#e0e0e0] w-full max-w-xs text-sm text-gray-900`} 
+            onChange={field.onChange}
+            name={field.name}
             id="priority"
-            placeholder="Low - Medium - High"
-            autoComplete="off"
-          />
+         >
+            <option 
+               disabled 
+               selected
+               className="text-gray-300">Priority</option>
+            {priorityOptions.map(priority => {
+               return <option key={priority.value} value={priority.value}>{priority.label}</option>
+            })}
+          </select>
+
          { errors.priority && 
             <label className="label">
                <span className="label-text-alt text-error">
@@ -100,7 +113,8 @@ const CreateTaskModal = ({ addTodoMutation }) => {
 
         <CreateTaskActions />
       </form>
-
+      
+      {/* invisible backdrop bottom */}
       <form method="dialog" className="modal-backdrop">
         <button>close</button>
       </form>
