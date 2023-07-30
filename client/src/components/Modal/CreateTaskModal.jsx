@@ -92,10 +92,10 @@ const CreateTaskModal = ({ addTodoMutation }) => {
             onChange={field.onChange}
             name={field.name}
             id="priority"
+            defaultValue={"Priority"}
          >
-            <option 
+            <option
                disabled 
-               selected
                className="text-gray-300">Priority</option>
             {priorityOptions.map(priority => {
                return <option key={priority.value} value={priority.value}>{priority.label}</option>
