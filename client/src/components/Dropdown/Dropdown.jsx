@@ -15,20 +15,20 @@ const Dropdown = ({ setUpdatedTask, deleteTodoMutation, todo, _id }) => {
   return (
      <section className="w-11 flex pt-1 justify-center card-actions dropdown dropdown-bottom dropdown-end">
        <button tabIndex={0} >
-         <MoreHorizontal size={16} color="#000" />
+         <MoreHorizontal size={16} color="#797D8B" />
        </button>
        <ul
          tabIndex={0}
-         className="dropdown-content z-[1] menu p-2 shadow rounded-box bg-white"
+         className="dropdown-content z-[1] menu p-2 shadow rounded-box bg-black_pearl"
        >
-         <li className="text-slate-900">
-           <button className="hover:text-slate-900" onClick={() => updateTask(todo)}>
+         <li className="text-carbon hover:bg-wool">
+           <button onClick={() => updateTask(todo)}>
              <Edit3 size={14} />
              <span>Update</span>
            </button>
          </li>
-         <li className="text-slate-900">
-           <button className="hover:text-slate-900" onClick={() => deleteTask(_id)}>
+         <li className="text-carbon hover:bg-wool">
+           <button onClick={() => deleteTask(_id)}>
              <Trash2 size={14} />
              <span>Delete</span>
            </button>

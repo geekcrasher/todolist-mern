@@ -9,12 +9,12 @@ const Contact = () => {
          </Link>
          <section className="w-0.5 h-5  bg-gray-400"></section>
          <Link to={"https://github.com/geekcrasher"} target="_blank">
-            <Github size={18} color="#6b7280"/>
+            <Github size={18} color="#797D8B"/>
          </Link>
          <Link to={"https://www.linkedin.com/in/king-paulo-lopez-17696a280/"} target="_blank">
-            <Linkedin size={18} color="#6b7280"/>
+            <Linkedin size={18} color="#797D8B"/>
          </Link>
-         <Link to={"#"}><Facebook size={18} color="#6b7280"/></Link>
+         <Link to={"#"}><Facebook size={18} color="#797D8B"/></Link>
       </section>
     );
 }

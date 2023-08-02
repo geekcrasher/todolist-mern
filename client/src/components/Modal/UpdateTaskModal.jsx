@@ -35,9 +35,9 @@ const UpdateTaskModal = ({updatedTask, setUpdatedTask, updateTodoMutation }) => 
       <form
         onSubmit={handleSubmit(saveUpdatedTask)}
         method="dialog"
-        className="modal-box form w-80 bg-white"
+        className="modal-box form w-80 bg-spinel"
       >
-        <h1 className="text-center font-figtree text-[#333] text-md mb-2">
+        <h1 className="text-center font-figtree text-carbon text-md mb-2">
           Update Task
         </h1>
 
@@ -46,7 +46,7 @@ const UpdateTaskModal = ({updatedTask, setUpdatedTask, updateTodoMutation }) => 
             {...register("title")}
             type="text"
             placeholder="Title"
-            className="input bg-inherit border-[#dbdddf] w-full max-w-xs text-sm text-gray-900 placeholder:text-sm"
+            className="input bg-inherit border-[#dbdddf] w-full max-w-xs text-sm text-carbon placeholder:text-sm"
             id="title"
             value={updatedTask.title ? updatedTask.title : ""}
             onChange={handleChange}

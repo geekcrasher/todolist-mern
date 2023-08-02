@@ -21,11 +21,11 @@ const Header = () => {
   };
 
   return (
-    <header className=" navbar fixed top-0 z-10 h-20 flex items-center justify-between px-6 bg-white">
+    <header className=" navbar fixed top-0 z-10 h-20 flex items-center justify-between px-6 bg-transparent">
         <Link to={"/"} className="flex items-center cursor-pointer">
-          <ListTodo color="#000001" size={20} />
-          <span className="font-figtree text-[#000001] lg:text-lg ml-2 lowercase">Task</span>
-          <span className="font-figtree lg:text-lg text-accent_light normal-case">
+          <ListTodo color="#797D8B" size={20} />
+          <span className="font-figtree text-carbon lg:text-lg ml-2 lowercase">Task</span>
+          <span className="font-figtree lg:text-lg text-accent normal-case">
             Tracker
           </span>
         </Link>

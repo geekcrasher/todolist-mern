@@ -13,16 +13,6 @@ const Tasks = ({
 
   const [updatedTask, setUpdatedTask] = useState({});
 
-  const priorityImage = (priority) => {
-    if (priority == "Low") {
-      return "bg-cover bg-[url('./images/blob-haikei-peach.svg')] border-[#febe6b]";
-    } else if (priority == "Medium") {
-      return "bg-cover bg-[url('./images/blob-haikei-sky.svg')] border-[#99c7fc]";
-    } else if (priority == "High") {
-      return "bg-cover bg-[url('./images/blob-haikei-melon.svg')] border-[#feaaa4]";
-    }
-  };
-
   return (
     <section className="mt-10 mb-10">
       <section className="grid sm:grid-cols-1 lg:grid-cols-2 mxl:grid-cols-3 xxl:grid-cols-4 gap-6">
@@ -35,7 +25,8 @@ const Tasks = ({
           return (
             <section
               key={todo._id}
-              className={`${priorityImage(todo.priority)} h-56 rounded-xl px-5 pt-7 pb-3 shadow border`}
+            //   ${priorityImage(todo.priority)}
+              className={`bg-spinel h-56 rounded-xl px-5 pt-7 pb-3`}
             >
               <TaskDetails
                 todo={todo}

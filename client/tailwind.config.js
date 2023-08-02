@@ -20,20 +20,18 @@ export default {
       width: {
         "12/12": "95%",
       },
-      textColor: {
-         lightgray: "#8E949A",
-         accent_light: "#00D1A7",
-         accent_dark: "#058e85",
-      },
       backgroundColor: {
-        main_dark: "#191E24",
-        pink_primary: "#F86465",
-        pink_secondary: "#c94f51",
-        priority: "#313136",
-        task: "#F9FBFA",
-        task_dark: "#252529",
-        highlight: "#e2e2e3",
+        spinel: "#262C39",
+        black_pearl: "#20252E",
+        wool: "#1A1E25",
       },
+      textColor: {
+         low: "#8AD3F6",
+         medium: "#D0FE59",
+         high: "#FF4A88",
+         carbon: "#797D8B",
+         accent: "#00D1A7"
+      }
     },
   },
   plugins: [require("daisyui"), require("tailwind-scrollbar-hide")],
