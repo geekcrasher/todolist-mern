@@ -1,10 +1,10 @@
 const CreateTaskActions = () => {
   return (
-    <section className="mt-8 grid grid-cols-2 gap-2 w-full">
-      <button type="reset" className="btn btn-ghost text-slate-800 normal-case">
+    <section className="mt-10 grid grid-cols-2 gap-2 w-full">
+      <button type="reset" className="btn btn-outline hover:bg-transparent bg-spinel text-carbon hover:text-slate-200 normal-case">
         Cancel
       </button>
-      <button  type="submit" className="btn  bg-[#2fa199] hover:bg-[#058e85] active:bg-[#2fa199] text-slate-50 normal-case border-0">
+      <button  type="submit" className="btn bg-[#1e232e] hover:bg-[#181c25] active:bg-[#1e232e] text-slate-300 normal-case border-0">
         Create
       </button>
     </section>
