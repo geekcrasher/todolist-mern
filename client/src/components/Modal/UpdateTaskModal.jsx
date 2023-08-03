@@ -35,9 +35,9 @@ const UpdateTaskModal = ({updatedTask, setUpdatedTask, updateTodoMutation }) => 
       <form
         onSubmit={handleSubmit(saveUpdatedTask)}
         method="dialog"
-        className="modal-box form w-80 bg-spinel"
+        className="modal-box form w-80 bg-spinel pb-10"
       >
-        <h1 className="text-center font-figtree text-carbon text-md mb-2">
+        <h1 className="text-center font-figtree text-slate-300 text-md mb-4">
           Update Task
         </h1>
 
@@ -46,7 +46,7 @@ const UpdateTaskModal = ({updatedTask, setUpdatedTask, updateTodoMutation }) => 
             {...register("title")}
             type="text"
             placeholder="Title"
-            className="input bg-inherit border-[#dbdddf] w-full max-w-xs text-sm text-carbon placeholder:text-sm"
+            className="input bg-transparent border-gray-600 w-full max-w-xs text-sm placeholder:text-sm"
             id="title"
             value={updatedTask.title ? updatedTask.title : ""}
             onChange={handleChange}
@@ -66,7 +66,7 @@ const UpdateTaskModal = ({updatedTask, setUpdatedTask, updateTodoMutation }) => 
             {...register("description")}
             type="text"
             placeholder="Description"
-            className="input bg-inherit border-[#dbdddf] w-full max-w-xs text-sm text-gray-900 placeholder:text-sm"
+            className="input bg-transparent border-gray-600 w-full max-w-xs text-sm placeholder:text-sm"
             id="description"
             value={updatedTask.description ? updatedTask.description : ""}
             onChange={handleChange}
@@ -86,7 +86,7 @@ const UpdateTaskModal = ({updatedTask, setUpdatedTask, updateTodoMutation }) => 
             aria-disabled
             type="text"
             placeholder="You cannot touch this"
-            className="input bg-transparent border-[#dbdddf] w-full max-w-xs text-sm text-gray-900 placeholder:text-sm"
+            className="input bg-transparent border-gray-600 w-full max-w-xs text-sm text-gray placeholder:text-sm"
             id="priority"
             value={updatedTask.priority ? updatedTask.priority : ""}
             onChange={handleChange}

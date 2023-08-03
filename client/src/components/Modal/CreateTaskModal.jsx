@@ -43,17 +43,17 @@ const CreateTaskModal = ({ addTodoMutation }) => {
     <dialog id="my_modal_2" className="modal">
       <form
         method="dialog"
-        className="modal-box form w-80 h-fit bg-white"
+        className="modal-box form w-80 h-fit bg-spinel pb-10"
         onSubmit={handleSubmit(submit)}
       >
-        <h1 className="text-center font-figtree text-md mb-2 text-[#333]">
+        <h1 className="text-center font-figtree text-md mb-4 text-slate-300">
           New task
         </h1>
 
         <FormControl htmlFor="title" label="Title">
           <input
             {...register("title")}
-            className={`${errors.title && "input-error border-error"} input bg-inherit border-[#e0e0e0] w-full max-w-xs text-sm text-gray-900 placeholder:text-sm`}
+            className={`${errors.title && "input-error border-error"} input bg-transparent border-gray-600 w-full max-w-xs text-sm placeholder:text-sm`}
             type="text"
             id="title"
             placeholder="e.g. Todo App Project"
@@ -71,7 +71,7 @@ const CreateTaskModal = ({ addTodoMutation }) => {
         <FormControl htmlFor="description" label="Description">
           <input
             {...register("description")}
-            className={`${errors.description && "input-error border-error"} input bg-inherit truncate border-[#e0e0e0] w-full max-w-xs text-sm text-gray-900 placeholder:text-sm`}
+            className={`${errors.description && "input-error border-error"} input bg-transparent border-gray-600 truncate w-full max-w-xs text-sm placeholder:text-sm`}
             type="text"
             id="description"
             placeholder="Develop a new feature for the web application"
@@ -88,17 +88,22 @@ const CreateTaskModal = ({ addTodoMutation }) => {
 
         <FormControl htmlFor="priority" label="Priority">
           <select  
-            className={`${errors.priority && "input-error border-error"} select bg-inherit border-[#e0e0e0] w-full max-w-xs text-sm text-gray-900`} 
+            className={`${errors.priority && "input-error border-error"} select bg-spinel border-gray-600 w-full max-w-xs text-sm`} 
             onChange={field.onChange}
             name={field.name}
             id="priority"
             defaultValue={"Priority"}
          >
-            <option
-               disabled 
-               className="text-gray-300">Priority</option>
+            <option  disabled>Priority</option>
             {priorityOptions.map(priority => {
-               return <option key={priority.value} value={priority.value}>{priority.label}</option>
+               return (
+                  <option 
+                     key={priority.value} 
+                     value={priority.value}
+                  >
+                     {priority.label}
+                  </option>
+               )
             })}
           </select>
 
